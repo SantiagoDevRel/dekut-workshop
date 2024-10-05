@@ -1,6 +1,12 @@
 # SEPOLIA CONTRACT
 
-## https://sepolia.etherscan.io/address/0x3bf2990f3d54b9e20dbc5234a5d761a0f08c4308#code
+## deployed contract
+
+https://sepolia.etherscan.io/address/0x3bf2990f3d54b9e20dbc5234a5d761a0f08c4308#code
+
+## deployed dapp on fleek:
+
+https://thundering-pager-swift.on-fleek.app/
 
 # steps
 
