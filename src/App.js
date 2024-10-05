@@ -29,10 +29,20 @@ function App() {
     setCounter(result.toString());
   }
 
-  //5. connect accounts and writing functions
-  async function increaseCounter() {}
+  async function increaseCounter() {
+    //5. connect accounts and writing functions
+    const accountsConnected = await web3.eth.requestAccounts();
 
-  async function dicreaseCounter() {}
+    // writing functions
+    const txReceipt = await myContract.methods.increaseCounter().send({ from: accountsConnected[0] });
+    console.log(txReceipt);
+
+    callContract();
+  }
+
+  async function dicreaseCounter() {
+    //5. connect accounts and writing functions
+  }
 
   return (
     <div className="App">
