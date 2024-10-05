@@ -22,7 +22,7 @@ function App() {
   const myContract = new web3.eth.Contract(ABI, ADDRESS);
 
   //4. interact with reading functions
-  async function callContract() {
+  async function getCounter() {
     const result = await myContract.methods.getCounter().call();
 
     // render front end
@@ -37,18 +37,25 @@ function App() {
     const txReceipt = await myContract.methods.increaseCounter().send({ from: accountsConnected[0] });
     console.log(txReceipt);
 
-    callContract();
+    getCounter();
   }
 
   async function dicreaseCounter() {
     //5. connect accounts and writing functions
+    const connectedAccounts = await web3.eth.requestAccounts();
+
+    // interact with dicrease counter
+    const txReceipt = await myContract.methods.dicreaseCounter().send({ from: connectedAccounts[0] });
+    console.log(txReceipt);
+
+    getCounter();
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={callContract}>Get current counter</button>
+        <button onClick={getCounter}>Get current counter</button>
         <button onClick={increaseCounter}>Increase counter</button>
         <button onClick={dicreaseCounter}>Dicrease counter</button>
         <p>Counter: {counter}</p>
